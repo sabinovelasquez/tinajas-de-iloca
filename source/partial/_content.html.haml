@@ -1,5 +1,5 @@
 #home-slide
-	.texture
+	.logo
 	#slider-home.carousel.slide( data-ride = "carousel" )
 		%ol.carousel-indicators
 			%li.active( data-target = "#slider-home" data-slide-to = "0" )
@@ -7,31 +7,48 @@
 			%li( data-target = "#slider-home" data-slide-to = "2" )
 			%li( data-target = "#slider-home" data-slide-to = "3" )
 		.carousel-inner( role = "listbox" )
-			.item.active
-				%img( src = "img/home/01.jpg" alt = "Playa de Iloca" )
+			.item.s1.active
+				.texture
 				.container
 					.carousel-caption
-						%h1 Playa Iloca
-						%p Descripción
-			.item
-				%img( src = "img/home/02.jpg" alt = "Playa de Iloca" )
+						%h1
+						%p
+			.item.s2
+				.texture
 				.container
 					.carousel-caption
-						%h1 Playa Iloca
-						%p Descripción
-			.item
-				%img( src = "img/home/03.jpg" alt = "Playa de Iloca" )
+						%h1
+						%p
+			.item.s3
+				.texture
 				.container
 					.carousel-caption
-						%h1 Playa Iloca
-						%p Descripción
-			.item
-				%img( src = "img/home/04.jpg" alt = "Playa de Iloca" )
+						%h1
+						%p
+			.item.s4
+				.texture
 				.container
 					.carousel-caption
-						%h1 Playa Iloca
-						%p Descripción
+						%h1
+						%p
 			%a.left.carousel-control( href = "#slider-home" role = "button" data-slide = "prev" )
 				%span.glyphicon.glyphicon-chevron-left
 			%a.right.carousel-control( href = "#slider-home" role = "button" data-slide = "next" )
 				%span.glyphicon.glyphicon-chevron-right
+#content.container
+	.row.block
+		.col-sm-12
+			%h1.text-center
+				Cabañas Tinajas de Iloca
+			%p.text-center
+				Disfruta un espacio de relajo, descanso y tranquilidad. Nos ubicamos en un sector privilegiado de Iloca, a sólo 100 mts. de la playa.
+			%p.text-center
+				Ven a disfrutar de una conexión única con la naturaleza donde se encuentran el campo con el mar.
+	.row.block
+		.col-sm-12
+			%h1.text-center
+				Ubicación
+			%p.text-center
+				Estamos ubicados en la costa de Iloca, VII Región del Maule
+
+#map
