@@ -1,0 +1,24 @@
+!!!
+%html(lang='es')
+  %head
+
+    %meta{:charset => 'utf-8'}
+    %meta(http-equiv = 'X-UA-Compatible' content = 'IE=edge')
+    %meta(name = 'viewport' content = 'width=device-width, initial-scale=1, maximum-scale=1')
+    
+    %meta(property = 'og:url' content = 'http://tinajasdeiloca.cl')
+    %meta(property = 'og:title' content = 'Tinajas de Iloca' )
+    %meta(property = 'og:image' content = 'http://tinajasdeiloca.cl/img/fb.png' )
+    %meta(property = 'og:description' content = 'Cabañas en Iloca')
+
+    %title 
+      = current_page.data.title || 'Title'
+    = stylesheet_link_tag 'all'
+
+  %body
+    = partial 'partial/modal'
+    = partial 'partial/header'
+    = partial 'partial/content'
+    = partial 'partial/footer'
+    
+    = javascript_include_tag 'all'
