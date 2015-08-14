@@ -16,9 +16,9 @@
     = stylesheet_link_tag 'all'
 
   %body
-    = partial 'partial/modal'
+    = partial 'partial/modal/modal'
     = partial 'partial/header'
-    = partial 'partial/content'
+    = yield
     = partial 'partial/footer'
     
     = javascript_include_tag 'all'
