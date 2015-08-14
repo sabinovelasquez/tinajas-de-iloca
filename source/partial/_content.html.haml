@@ -35,20 +35,86 @@
 				%span.glyphicon.glyphicon-chevron-left
 			%a.right.carousel-control( href = "#slider-home" role = "button" data-slide = "next" )
 				%span.glyphicon.glyphicon-chevron-right
-#content.container
-	.row.block
-		.col-sm-12
-			%h1.text-center
-				Cabañas Tinajas de Iloca
-			%p.text-center
-				Disfruta un espacio de relajo, descanso y tranquilidad. Nos ubicamos en un sector privilegiado de Iloca, a sólo 100 mts. de la playa.
-			%p.text-center
-				Ven a disfrutar de una conexión única con la naturaleza donde se encuentran el campo con el mar.
-	.row.block
-		.col-sm-12
-			%h1.text-center
-				Ubicación
-			%p.text-center
-				Estamos ubicados en la costa de Iloca, VII Región del Maule
+#welcome
+	.container
+		.row.block
+			.col-sm-12
+				%h1.text-center
+					Cabañas Tinajas de Iloca
+				%p.text-center
+					Disfruta un espacio de relajo, descanso y tranquilidad. Nos ubicamos en un sector privilegiado de Iloca, a sólo 100 mts. de la playa.
+				%p.text-center
+					Ven a disfrutar de una conexión única con la naturaleza donde se encuentran el campo con el mar.
+#equipamiento
+	.container
+		.row.block
+			.col-sm-12
+				%h1.text-center
+					Equipamiento
+				%p.text-center
+					Disponemos de 4 cabañas equipadas con capacidad máxima 6 personas.
+				%ul.col-sm-6
+					%li
+						Dormitorio matrimonial
+					%li
+						Dormitorio para 4 personas
+					%li
+						TV LCD32"
+					%li
+						DirecTV
+					%li
+						Conexión Wi-Fi
+				%ul.col-sm-6
+					%li
+						Cocina Americana, living y comedor
+					%li
+						Calefacción
+					%li
+						Estacionamiento 
+					%li
+						No se admiten mascotas
+					%li
+						Horario de llegada: a partir de las 16 hrs. Horario de salida: 14 hrs.
+			#galeria.row
+				.col-xs-6.col-sm-4.col-md-2.center-block.imagen
+					%a.picprod( data-toggle="modal" data-target="#modal" data = "Vista Exterior" )
+						.hover
+							%i.fa.fa-search
+						%img.img-responsive( src = "img/pics/general.jpg" )
+				.col-xs-6.col-sm-4.col-md-2.center-block.imagen
+					%a.picprod( data-toggle="modal" data-target="#modal" data = "Living" )
+						.hover
+							%i.fa.fa-search
+						%img.img-responsive( src = "img/pics/living.jpg" )
+				.col-xs-6.col-sm-4.col-md-2.center-block.imagen
+					%a.picprod( data-toggle="modal" data-target="#modal" data = "Pieza principal" )
+						.hover
+							%i.fa.fa-search
+						%img.img-responsive( src = "img/pics/suite.jpg" )
+				.col-xs-6.col-sm-4.col-md-2.center-block.imagen
+					%a.picprod( data-toggle="modal" data-target="#modal" data = "Pieza interior" )
+						.hover
+							%i.fa.fa-search
+						%img.img-responsive( src = "img/pics/hab.jpg" )
+				.col-xs-6.col-sm-4.col-md-2.center-block.imagen
+					%a.picprod( data-toggle="modal" data-target="#modal" data = "Cocina" )
+						.hover
+							%i.fa.fa-search
+						%img.img-responsive( src = "img/pics/cocina.jpg" )
+				.col-xs-6.col-sm-4.col-md-2.center-block.imagen
+					%a.picprod( data-toggle="modal" data-target="#modal" data = "Baño" )
+						.hover
+							%i.fa.fa-search
+						%img.img-responsive( src = "img/pics/bano.jpg" )
+
+
+#ubicacion
+	.container
+		.row.block
+			.col-sm-12
+				%h1.text-center
+					Ubicación
+				%p.text-center
+					Estamos ubicados en la costa de Iloca, VII Región del Maule
 
 #map

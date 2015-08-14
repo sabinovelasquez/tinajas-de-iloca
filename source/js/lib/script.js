@@ -259,6 +259,13 @@ function marker(){
 		infowindow.open(map, this);
 	});
 }
+$('a.picprod').unbind('click').click(function(){
+	var photo = $(this).find('img').attr('src');
+	var title = $(this).attr('data');
+	$('#modal .modal-body').html('<img class="img-responsive" src="'+photo+'" alt="'+title+'" />');
+	$('#modal .modal-footer').html('<p>'+title+'</p>');
+});
+
 $.ajaxSetup({cache: true});
 $.getScript('//connect.facebook.net/es_LA/sdk.js', function() {
   FB.init({
