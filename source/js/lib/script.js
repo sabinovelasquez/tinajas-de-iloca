@@ -82,7 +82,7 @@ function sendTheMail(from, name, phone, quant, datein, dateout) {
 				'headers': {
 					'Reply-To': 'tinajasdeiloca@gmail.com'
         		},
-				//'bcc_address': 'horamma@gmail.com',
+				'bcc_address': 'horamma@gmail.com',
 				'autotext': 'true',
 				'subject': 'Contacto Tinajas de Iloca',
 				'html': msj
