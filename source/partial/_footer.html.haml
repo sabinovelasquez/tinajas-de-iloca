@@ -12,15 +12,24 @@
 				%hr
 				%p.text-center
 					%i.fa.fa-phone
-					Nelson: +56 9 9335 5579
+					Nelson: 
+					%a( href = "tel:+56993355579" )
+						+56 9 9335 5579
 				%p.text-center
 					%i.fa.fa-phone
-					Olguita: +56 9 9972 7122
+					Olguita: 
+					%a( href = "tel:+56999727122" )
+						+56 9 9972 7122
 				%p.text-center
 					%i.fa.fa-envelope
-					tinajasdeiloca@gmail.com
+					%a( href = "mailto:tinajasdeiloca@gmail.com" )
+						tinajasdeiloca@gmail.com
 
 			.col-sm-6
+				#sendloader.text-center
+					%h3
+						Enviando datos...
+					%i.fa.fa-spinner
 				%form#contacto
 					.form-group.col-sm-12
 						%label

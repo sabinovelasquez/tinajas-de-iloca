@@ -82,24 +82,37 @@ function sendTheMail(from, name, phone, quant, datein, dateout) {
 				'headers': {
 					'Reply-To': 'tinajasdeiloca@gmail.com'
         		},
-				'bcc_address': 'horamma@gmail.com',
+				//'bcc_address': 'horamma@gmail.com',
 				'autotext': 'true',
 				'subject': 'Contacto Tinajas de Iloca',
 				'html': msj
 			}
 		}
 	}).done(function(response) {
-		console.log(response);
+		var status = response[0].status;
+		if(status == 'sent'){
+			$('#sendloader h3').text('Envío exitoso. Revise su correo de confirmación');
+			$('#sendloader i').fadeOut();
+		}else{
+			$('#sendloader h3').text('Error de conexión. Por favor intente nuevamente.');
+			$('#sendloader i').fadeOut();
+		}
+		setTimeout(sendtonormal, 5000);
 	});
 }
-
+function sendtonormal(){
+	$('form').removeClass('sending');
+	$('#sendloader').removeClass('active');
+	$('#sendloader i').show();
+	$('form input').val('');
+}
 $('a.picprod').unbind('click').click(function(){
 	var photo = $(this).find('img').attr('src');
 	var title = $(this).attr('data');
 	$('#modal .modal-body').html('<img class="img-responsive" src="'+photo+'" alt="'+title+'" />');
 	$('#modal .modal-footer').html('<p>'+title+'</p>');
 });
-$('#send').click(function(){
+$('#send').click(function(event){
 	var email = $('#email').val();
 	var name = $('#name').val();
 	var phone = $('#phone').val();
@@ -108,6 +121,9 @@ $('#send').click(function(){
 	var dateout = $('#dateout').val();
 	if( name && phone && quant && email && datein && dateout ){
 		event.preventDefault();
+		$('form').addClass('sending');
+		$('#sendloader h3').text('Enviando datos...');
+		$('#sendloader').addClass('active');
 		sendTheMail(email, name, phone, quant, datein, dateout);
 	}
 });
