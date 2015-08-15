@@ -144,6 +144,21 @@ body{
 footer{
 	background: #333333;
 	color:#fff;
+	form{
+		label{
+			font-size: 1.1em;
+			font-weight: lighter;
+		}
+		input.form-control{
+			-webkit-border-radius: 0;
+			-moz-border-radius: 0;
+			border-radius: 0;
+		}
+		button.btn{
+			color:#fff;
+			background: #19c0c2;
+		}
+	}
 }
 
 #modal{
@@ -194,4 +209,8 @@ footer{
 			text-align: center;
 		}
 	}
+}
+#bottom{
+	background: #222;
+	color:#fff;
 }

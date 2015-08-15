@@ -5,14 +5,52 @@
 				%h1.text-center
 					Contacto / Reservas
 			.col-sm-6
+				%h3.text-center
+					Estimado cliente
 				%p.text-center
-					Estimado cliente: 
-					Si deseas hacer una cotización, te rogamos llamar a nuestros teléfonos o escribirnos a nuestro correo indicando los siguientes datos
+					Si deseas hacer una cotización, te rogamos llamar a nuestros teléfonos o llenar nuestro formulario de contacto.
+				%hr
 				%p.text-center
+					%i.fa.fa-phone
 					Nelson: +56 9 9335 5579
 				%p.text-center
+					%i.fa.fa-phone
 					Olguita: +56 9 9972 7122
 				%p.text-center
-					E-mail: tinajasdeiloca@gmail.com
+					%i.fa.fa-envelope
+					tinajasdeiloca@gmail.com
 
 			.col-sm-6
+				%form#contacto
+					.form-group.col-sm-12
+						%label
+							Nombre y Apellido
+						%input#name.form-control( name = "name" required placeholder = "Nombre - Apellidos")
+					.form-group.col-sm-12
+						%label
+							Email
+						%input#email.form-control( name = "email" required  placeholder = "Ej: nombre@email.com")
+					.form-group.col-sm-12
+						%label
+							Teléfono
+						%input#phone.form-control( name = "phone" required  placeholder = "Ej: +56 2 2222 2222")
+					.form-group.col-sm-6
+						%label
+							Cantidad exacta de personas 
+						%input#cantidad.form-control( name = "cantidad" required placeholder = "Ej: 4" )
+					.form-group.col-sm-3
+						%label
+							Día de entrada
+						%input#datein.form-control( name = "datein" required placeholder = "Ej: 01/07/2015" )
+					.form-group.col-sm-3
+						%label
+							Día de salida
+						%input#dateout.form-control( name = "dateout" required placeholder = "Ej: 08/07/2015" )
+					.col-sm-12.text-right
+						%button#send.btn.bnt-default( type = "submit" )
+							Enviar
+							%i.fa.fa-send
+#bottom.text-center
+	%small
+		Tinajas de Iloca© 2015
+#fb-root
