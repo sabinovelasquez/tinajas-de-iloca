@@ -82,7 +82,7 @@ function sendTheMail(from, name, phone, quant, datein, dateout) {
 				'headers': {
 					'Reply-To': 'tinajasdeiloca@gmail.com'
         		},
-				'bcc_address': 'horamma@gmail.com',
+				'bcc_address': 'tinajasdeiloca@gmail.com',
 				'autotext': 'true',
 				'subject': 'Contacto Tinajas de Iloca',
 				'html': msj
@@ -131,7 +131,7 @@ $('#send').click(function(event){
 $.ajaxSetup({cache: true});
 $.getScript('//connect.facebook.net/es_LA/sdk.js', function() {
   FB.init({
-    appId: '1608212939414078',
+    appId: '465502106957967',
     xfbml: true,
     version: 'v2.0'
   });
