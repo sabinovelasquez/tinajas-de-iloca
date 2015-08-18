@@ -1,46 +1,42 @@
 'use-strict';
 
-var map, infowindow = new google.maps.InfoWindow();
+var map, infowindow;
 
-function initialize() {
-	var temp=[];
+
+function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
-		center: new google.maps.LatLng(-34.923711, -72.178922),
 		zoom: 16,
 		scrollwheel: false,
-		disableDefaultUI: true,
-		mapTypeControlOptions: {
-		mapTypeIds : ["roadmap", "osm"],
-		},
+		center: {lat: -34.923711, lng: -72.178922},
+		panControl: true,
 		zoomControl: true,
-		zoomControlOptions: {
-			style: google.maps.ZoomControlStyle.SMALL,
-			position: google.maps.ControlPosition.LEFT_BOTTOM
-		},
-		styles:[{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"lightness":20},{"color":"#f3edd6"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#19c0c2"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"visibility":"on"}]}],   
+		scaleControl: true,
+		styles:[{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"lightness":20},{"color":"#f3edd6"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#19c0c2"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"visibility":"on"}]}]
+
 	});
+	infowindow = new google.maps.InfoWindow()
 	marker();
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+
 function postToWall(name, desc) {
-    FB.ui({
-        method: 'feed',
-        link: 'http://tinajasdeiloca.cl/',
-        picture: 'http://tinajasdeiloca.cl/img/post.jpg',
-        name: name,
-        caption: '#tinajasdeiloca',
-        description: desc
-    }, function(postResponse) {
-        ga('send', 'event', 'Compartir en redes', 'Facebook');
-    });
+	FB.ui({
+		method: 'feed',
+		link: 'http://tinajasdeiloca.cl/',
+		picture: 'http://tinajasdeiloca.cl/img/post.jpg',
+		name: name,
+		caption: '#tinajasdeiloca',
+		description: desc
+	}, function(postResponse) {
+		ga('send', 'event', 'Compartir en redes', 'Facebook');
+	});
 }
 function postToTweet(name) {
-    $('#tweet').trigger('click');
-    var tit = encodeURIComponent(name);
-    var url = 'https://twitter.com/intent/tweet?text=' + tit + '&hashtags=tinajasdeiloca&url=http://tinajasdeiloca.cl/';
-    share_window = window.open(url, 'Twitter', 'status = 1, left = ' + ($(window).width() / 3) + ', top = 90, height = 350, width = 420, resizable = 0');
-    ga('send', 'event', 'Compartir en redes', 'Twitter');
+	$('#tweet').trigger('click');
+	var tit = encodeURIComponent(name);
+	var url = 'https://twitter.com/intent/tweet?text=' + tit + '&hashtags=tinajasdeiloca&url=http://tinajasdeiloca.cl/';
+	share_window = window.open(url, 'Twitter', 'status = 1, left = ' + ($(window).width() / 3) + ', top = 90, height = 350, width = 420, resizable = 0');
+	ga('send', 'event', 'Compartir en redes', 'Twitter');
 }
 function marker(){
 	var marker = new google.maps.Marker({
@@ -82,7 +78,7 @@ function sendTheMail(from, name, phone, quant, datein, dateout) {
 				],
 				'headers': {
 					'Reply-To': 'tinajasdeiloca@gmail.com'
-        		},
+				},
 				'bcc_address': 'tinajasdeiloca@gmail.com',
 				'autotext': 'true',
 				'subject': 'Contacto Tinajas de Iloca',
@@ -139,11 +135,11 @@ $('footer a').click(function(){
 
 $.ajaxSetup({cache: true});
 $.getScript('//connect.facebook.net/es_LA/sdk.js', function() {
-  FB.init({
-    appId: '465502106957967',
-    xfbml: true,
-    version: 'v2.0'
-  });
+	FB.init({
+		appId: '465502106957967',
+		xfbml: true,
+		version: 'v2.0'
+	});
 });
 
 

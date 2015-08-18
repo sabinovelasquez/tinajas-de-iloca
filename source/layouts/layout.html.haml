@@ -1,26 +1,25 @@
-- @gmap = '//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places'
+- @gmap = '//maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap'
 
 !!!
 %html(lang='es')
-  %head
+%head
 
     %meta{:charset => 'utf-8'}
     %meta(http-equiv = 'X-UA-Compatible' content = 'IE=edge')
     %meta(name = 'viewport' content = 'width=device-width, initial-scale=1, maximum-scale=1')
-    
+
     %meta(property = 'og:url' content = 'http://tinajasdeiloca.cl')
     %meta(property = 'og:title' content = 'Tinajas de Iloca' )
     %meta(property = 'og:image' content = 'http://tinajasdeiloca.cl/img/fb.png' )
     %meta(property = 'og:description' content = 'Cabañas en Iloca')
 
     %title 
-      = current_page.data.title || 'Title'
+        = current_page.data.title || 'Title'
     = stylesheet_link_tag 'all'
-
-  %body
+%body
     = partial 'partial/modal/modal'
     = partial 'partial/header'
     = yield
     = partial 'partial/footer'
-    
-    = javascript_include_tag @gmap, 'all' 
+
+    = javascript_include_tag 'all', @gmap 
