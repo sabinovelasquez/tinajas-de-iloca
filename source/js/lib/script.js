@@ -32,7 +32,7 @@ function postToWall(name, desc) {
         caption: '#tinajasdeiloca',
         description: desc
     }, function(postResponse) {
-        ga('send', 'event', 'Compartir en redes', 'Facebook');
+        //ga('send', 'event', 'Compartir en redes', 'Facebook');
     });
 }
 function postToTweet(name) {
@@ -40,7 +40,7 @@ function postToTweet(name) {
     var tit = encodeURIComponent(name);
     var url = 'https://twitter.com/intent/tweet?text=' + tit + '&hashtags=tinajasdeiloca&url=http://tinajasdeiloca.cl/';
     share_window = window.open(url, 'Twitter', 'status = 1, left = ' + ($(window).width() / 3) + ', top = 90, height = 350, width = 420, resizable = 0');
-    ga('send', 'event', 'Compartir en redes', 'Twitter');
+    //ga('send', 'event', 'Compartir en redes', 'Twitter');
 }
 function marker(){
 	var marker = new google.maps.Marker({
