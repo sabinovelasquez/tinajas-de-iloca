@@ -29,7 +29,7 @@ function postToWall(name, desc) {
         link: 'http://tinajasdeiloca.cl/',
         picture: 'http://tinajasdeiloca.cl/img/post.jpg',
         name: name,
-        caption: '#soysolidario',
+        caption: '#tinajasdeiloca',
         description: desc
     }, function(postResponse) {
         ga('send', 'event', 'Compartir en redes', 'Facebook');
