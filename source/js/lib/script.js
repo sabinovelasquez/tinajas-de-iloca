@@ -32,7 +32,7 @@ function postToWall(name, desc) {
         caption: '#tinajasdeiloca',
         description: desc
     }, function(postResponse) {
-        //ga('send', 'event', 'Compartir en redes', 'Facebook');
+        ga('send', 'event', 'Compartir en redes', 'Facebook');
     });
 }
 function postToTweet(name) {
@@ -40,7 +40,7 @@ function postToTweet(name) {
     var tit = encodeURIComponent(name);
     var url = 'https://twitter.com/intent/tweet?text=' + tit + '&hashtags=tinajasdeiloca&url=http://tinajasdeiloca.cl/';
     share_window = window.open(url, 'Twitter', 'status = 1, left = ' + ($(window).width() / 3) + ', top = 90, height = 350, width = 420, resizable = 0');
-    //ga('send', 'event', 'Compartir en redes', 'Twitter');
+    ga('send', 'event', 'Compartir en redes', 'Twitter');
 }
 function marker(){
 	var marker = new google.maps.Marker({
@@ -56,6 +56,7 @@ function marker(){
 	var share = '<div class="sharepoint"><a class="fb" onClick="postToWall(\''+title+'\', \''+desc+'\')"><i class="fa fa-facebook"></i></a><a class="tw" onClick="postToTweet(\''+title+'\')"><i class="fa fa-twitter"></i></a></div>';
 
 	google.maps.event.addListener(marker, 'click', function() {
+		ga('send', 'event', 'Mapa', 'Click en ubicación');
 		infowindow.setContent('<h4>'+title+'</h4>'+desc+'<p><small>'+dire+'</small></p>'+share/*+label*/);
 		infowindow.open(map, this);
 	});
@@ -93,9 +94,11 @@ function sendTheMail(from, name, phone, quant, datein, dateout) {
 		if(status == 'sent'){
 			$('#sendloader h3').text('Envío exitoso. Revise su correo de confirmación');
 			$('#sendloader i').fadeOut();
+			ga('send', 'event', 'Formulario', 'Envío exitoso');
 		}else{
 			$('#sendloader h3').text('Error de conexión. Por favor intente nuevamente.');
 			$('#sendloader i').fadeOut();
+			ga('send', 'event', 'Formulario', 'Envío fallido');
 		}
 		setTimeout(sendtonormal, 5000);
 	});
@@ -109,6 +112,7 @@ function sendtonormal(){
 $('a.picprod').unbind('click').click(function(){
 	var photo = $(this).find('img').attr('src');
 	var title = $(this).attr('data');
+	ga('send', 'event', 'Detalle foto', title);
 	$('#modal .modal-body').html('<img class="img-responsive" src="'+photo+'" alt="'+title+'" />');
 	$('#modal .modal-footer').html('<p>'+title+'</p>');
 });
@@ -126,6 +130,11 @@ $('#send').click(function(event){
 		$('#sendloader').addClass('active');
 		sendTheMail(email, name, phone, quant, datein, dateout);
 	}
+});
+
+$('footer a').click(function(){
+	var href = $(this).attr('href')
+	ga('send', 'event', 'Contacto', 'Click en <a>: ' + href );
 });
 
 $.ajaxSetup({cache: true});
