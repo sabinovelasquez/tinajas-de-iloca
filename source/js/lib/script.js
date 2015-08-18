@@ -31,7 +31,7 @@ function postToWall(name, desc) {
 	FB.ui({
 		method: 'feed',
 		link: 'http://tinajasdeiloca.cl/',
-		picture: 'http://tinajasdeiloca.cl/img/post.jpg',
+		picture: 'http://tinajasdeiloca.cl/img/fb.png',
 		name: name,
 		caption: '#tinajasdeiloca',
 		description: desc
