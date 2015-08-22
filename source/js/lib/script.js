@@ -2,14 +2,24 @@
 
 var map, infowindow;
 
+function isMob(){
+	var useragent = navigator.userAgent;
+	if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+	    return false;
+	}else{
+		return true;
+	}
+}
 
 function initMap() {
+	var mob = isMob();
 	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 16,
+		draggable: mob,
 		scrollwheel: false,
 		center: {lat: -34.923711, lng: -72.178922},
-		panControl: true,
 		zoomControl: true,
+		panControl: true,
 		zoomControlOptions: {
 			style: google.maps.ZoomControlStyle.LARGE,
 			position: google.maps.ControlPosition.BOTTOM_CENTER
