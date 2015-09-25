@@ -11,11 +11,15 @@
     %meta(property = 'og:url' content = 'http://tinajasdeiloca.cl')
     %meta(property = 'og:title' content = 'Tinajas de Iloca' )
     %meta(property = 'og:image' content = 'http://tinajasdeiloca.cl/img/fb.png' )
-    %meta(property = 'og:description' content = 'Cabañas en Iloca')
+    %meta(property = 'og:description' content = 'Disfruta un espacio de relajo, descanso y tranquilidad. Nos ubicamos en un sector privilegiado de Iloca, a sólo 100 mts. de la playa.')
+
+    %meta(name = 'description' content = 'Disfruta un espacio de relajo, descanso y tranquilidad. Nos ubicamos en un sector privilegiado de Iloca, a sólo 100 mts. de la playa.' )
+    %meta(name = 'keywords' content = 'alojamiento, cabañas, iloca, descanso, litoral central, hospedaje, playa, arriendo, motel' )
 
     %title 
         = current_page.data.title || 'Title'
     = stylesheet_link_tag 'all'
+    
 %body
     = partial 'partial/modal/modal'
     = partial 'partial/header'
