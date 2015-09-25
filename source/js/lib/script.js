@@ -58,7 +58,7 @@ function postToTweet(name) {
 }
 function marker(){
 	var marker = new google.maps.Marker({
-		icon: new google.maps.MarkerImage('http://sabino.cl/clients/tinajasdeiloca/img/location.svg', null, null, null, new google.maps.Size(30,45)),
+		icon: new google.maps.MarkerImage('http://tinajasdeiloca.cl/img/location.svg', null, null, null, new google.maps.Size(30,45)),
 		position: new google.maps.LatLng(-34.923711, -72.178922),
 		map: map,
 		draggable: false,
